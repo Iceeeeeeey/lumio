@@ -4,7 +4,20 @@
 
 Lumio 是一个 Chrome 侧边栏 AI 阅读助手，面向技术文档、长文章和网页资料阅读。你可以在网页上划词翻译、解释概念、解释代码、总结当前页面、提取关键知识点、生成术语表，并在侧边栏里继续追问。
 
+![Lumio product overview](docs/screenshots/lumio-hero.png)
+
 当前版本以中文体验为主，默认推荐使用 DeepSeek，也支持兼容 OpenAI Chat Completions 格式的其他 API 服务。
+
+## 功能特性
+
+- 网页划词工具栏：翻译、解释、解释代码、引用到对话
+- Chrome 侧边栏对话：自动提取当前页面上下文
+- 页面级操作：总结页面、提取要点、翻译页面、生成术语表
+- 代码块增强：在代码块上快速触发 AI 解释
+- 右键菜单和快捷键支持
+- 默认推荐 DeepSeek，用户自行配置 API 地址和 Token
+- 设置和对话历史保存在浏览器本地 `chrome.storage.local`
+- 无后端、无遥测、无内置数据采集
 
 ## 产品截图
 
@@ -23,17 +36,6 @@ Lumio 是一个 Chrome 侧边栏 AI 阅读助手，面向技术文档、长文�
 ### DeepSeek 推荐配置
 
 ![Lumio DeepSeek settings](docs/screenshots/deepseek-settings.png)
-
-## 功能特性
-
-- 网页划词工具栏：翻译、解释、解释代码、引用到对话
-- Chrome 侧边栏对话：自动提取当前页面上下文
-- 页面级操作：总结页面、提取要点、翻译页面、生成术语表
-- 代码块增强：在代码块上快速触发 AI 解释
-- 右键菜单和快捷键支持
-- 默认推荐 DeepSeek，用户自行配置 API 地址和 Token
-- 设置和对话历史保存在浏览器本地 `chrome.storage.local`
-- 无后端、无遥测、无内置数据采集
 
 ## 本地安装
 
@@ -162,7 +164,20 @@ MIT License. See [LICENSE](LICENSE).
 
 Lumio is a Chrome side-panel AI reading assistant for technical docs, long-form articles, and web pages. It helps you translate selected text, explain concepts, explain code, summarize the current page, extract key points, generate glossaries, and continue asking follow-up questions in the side panel.
 
+![Lumio product overview](docs/screenshots/lumio-hero.png)
+
 The current version is optimized for a Chinese-first experience. DeepSeek is the recommended default provider, while other OpenAI-compatible Chat Completions APIs are also supported.
+
+## Features
+
+- Floating toolbar for selected text: translate, explain, explain code, quote to chat
+- Chrome side-panel chat with page context extraction
+- Page-level actions: summarize page, extract key points, translate page, generate glossary
+- Code block enhancement with one-click code explanation
+- Context menu and keyboard shortcuts
+- DeepSeek as the recommended default provider
+- Local-only settings and conversation history through `chrome.storage.local`
+- No backend, no telemetry, no bundled analytics
 
 ## Screenshots
 
@@ -181,17 +196,6 @@ The current version is optimized for a Chinese-first experience. DeepSeek is the
 ### DeepSeek Settings
 
 ![Lumio DeepSeek settings](docs/screenshots/deepseek-settings.png)
-
-## Features
-
-- Floating toolbar for selected text: translate, explain, explain code, quote to chat
-- Chrome side-panel chat with page context extraction
-- Page-level actions: summarize page, extract key points, translate page, generate glossary
-- Code block enhancement with one-click code explanation
-- Context menu and keyboard shortcuts
-- DeepSeek as the recommended default provider
-- Local-only settings and conversation history through `chrome.storage.local`
-- No backend, no telemetry, no bundled analytics
 
 ## Local Installation
 
