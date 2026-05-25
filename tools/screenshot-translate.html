@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumio Translation Screenshot</title>
+  <link rel="stylesheet" href="../sidepanel/sidepanel.css">
+  <style>
+    html, body {
+      width: 420px;
+      height: 780px;
+    }
+
+    body {
+      background: #0f0f1a;
+    }
+
+    .source-card {
+      margin: 14px 16px 0;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-secondary);
+    }
+
+    .source-label {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .source-text {
+      color: var(--text-primary);
+      line-height: 1.45;
+    }
+
+    .messages {
+      min-height: auto;
+      padding-top: 10px;
+      gap: 12px;
+    }
+
+    .message-bubble p {
+      margin-bottom: 8px;
+    }
+
+    .translation-table {
+      display: grid;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .term-row {
+      padding: 7px 10px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .term-row strong {
+      color: var(--accent-light);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <h1>Lumio</h1>
+    </div>
+    <div class="header-actions">
+      <button class="header-btn" title="总结当前页面">□</button>
+      <button class="header-btn" title="新建对话">+</button>
+      <button class="header-btn" title="对话历史">↺</button>
+      <button class="header-btn" title="设置">⚙</button>
+    </div>
+  </div>
+
+  <div class="quick-actions">
+    <button class="quick-btn">📄 总结页面</button>
+    <button class="quick-btn">🔑 提取要点</button>
+    <button class="quick-btn">🌐 翻译页面</button>
+    <button class="quick-btn">📚 术语表</button>
+  </div>
+
+  <div class="source-card">
+    <div class="source-label">引用的英文原文</div>
+    <div class="source-text">
+      Self-attention lets each token compare itself with every other token in the sequence, making it easier to capture long-range dependencies.
+    </div>
+  </div>
+
+  <div class="chat-container">
+    <div class="messages">
+      <div class="message user">
+        <div class="message-label">你</div>
+        <div class="message-bubble">请将这段英文翻译成中文，并保留关键技术术语。</div>
+      </div>
+
+      <div class="message assistant">
+        <div class="message-label">AI</div>
+        <div class="message-bubble">
+          <h3>翻译</h3>
+          <p>自注意力（self-attention）让每个 token 都能与序列中的其他 token 比较，从而更容易捕捉长距离依赖关系（long-range dependencies）。</p>
+          <h3>术语说明</h3>
+          <div class="translation-table">
+            <div class="term-row"><strong>self-attention</strong>：自注意力，用于建模上下文。</div>
+            <div class="term-row"><strong>token</strong>：模型处理文本的基本单位。</div>
+            <div class="term-row"><strong>long-range dependencies</strong>：长距离依赖。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-area">
+    <div class="input-wrapper">
+      <textarea id="chat-input" placeholder="继续追问翻译细节..." rows="1"></textarea>
+      <button class="send-btn" title="发送">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="input-hint">保留术语 · 解释上下文 · 支持继续追问</div>
+  </div>
+</body>
+</html>

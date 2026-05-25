@@ -16,6 +16,10 @@ Lumio 是一个 Chrome 侧边栏 AI 阅读助手，面向技术文档、长文�
 
 ![Lumio selection toolbar](docs/screenshots/selection-toolbar.png)
 
+### 英文翻译和术语保留
+
+![Lumio English translation](docs/screenshots/english-translation.png)
+
 ### DeepSeek 推荐配置
 
 ![Lumio DeepSeek settings](docs/screenshots/deepseek-settings.png)
@@ -169,6 +173,10 @@ The current version is optimized for a Chinese-first experience. DeepSeek is the
 ### Selection Toolbar
 
 ![Lumio selection toolbar](docs/screenshots/selection-toolbar.png)
+
+### English Translation with Preserved Terms
+
+![Lumio English translation](docs/screenshots/english-translation.png)
 
 ### DeepSeek Settings
 
