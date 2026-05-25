@@ -1,0 +1,23 @@
+.DS_Store
+Thumbs.db
+
+# Local editor files
+.vscode/
+.idea/
+*.swp
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+
+# Build or packaged extension artifacts
+dist/
+build/
+*.zip
+*.crx
+*.pem
+
+# Local environment files
+.env
+.env.*

@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Lumio",
+  "version": "1.0.0",
+  "description": "Lumio - AI-powered reading assistant for technical docs: translate, explain, summarize, and chat",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "sidePanel",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel/sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Lumio"
+  },
+  "commands": {
+    "toggle-sidepanel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Toggle Lumio side panel"
+    },
+    "translate-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+T",
+        "mac": "Command+Shift+T"
+      },
+      "description": "Translate selected text"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
