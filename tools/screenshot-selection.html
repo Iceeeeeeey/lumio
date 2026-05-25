@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumio Selection Screenshot</title>
+  <link rel="stylesheet" href="../content/content.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 980px;
+      height: 620px;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+      background: #f6f7fb;
+      color: #182033;
+      overflow: hidden;
+    }
+
+    .browser {
+      height: 100%;
+      display: grid;
+      grid-template-rows: 54px 1fr;
+      background: white;
+    }
+
+    .chrome-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 18px;
+      border-bottom: 1px solid #dde3ee;
+      background: #eef2f8;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ff5f57;
+    }
+
+    .dot:nth-child(2) { background: #ffbd2e; }
+    .dot:nth-child(3) { background: #28c840; }
+
+    .address {
+      margin-left: 10px;
+      flex: 1;
+      padding: 9px 14px;
+      border-radius: 18px;
+      background: white;
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      height: 100%;
+    }
+
+    article {
+      padding: 58px 72px;
+    }
+
+    .eyebrow {
+      color: #6366f1;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 36px;
+      line-height: 1.16;
+      margin: 0 0 20px;
+      color: #111827;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #3f4858;
+      max-width: 620px;
+    }
+
+    .selection {
+      background: rgba(99, 102, 241, 0.22);
+      color: #171a35;
+      border-radius: 4px;
+      padding: 2px 4px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .aside {
+      border-left: 1px solid #e5e7eb;
+      background: #fbfcff;
+      padding: 54px 32px;
+    }
+
+    .aside-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px;
+      background: white;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+    }
+
+    .aside-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .aside-line {
+      height: 10px;
+      border-radius: 5px;
+      background: #e5e7eb;
+      margin: 12px 0;
+    }
+
+    #lumio-toolbar {
+      left: 258px;
+      top: 246px;
+    }
+  </style>
+</head>
+<body>
+  <div class="browser">
+    <div class="chrome-bar">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="address">https://example.com/docs/transformer-notes</div>
+    </div>
+    <div class="page">
+      <article>
+        <div class="eyebrow">Technical Documentation</div>
+        <h1>Understanding Self-Attention in Transformer Models</h1>
+        <p>
+          The Transformer architecture replaces recurrent layers with attention mechanisms.
+          <span class="selection">Self-attention lets each token compare itself with every other token in the sequence, making it easier to capture long-range dependencies.</span>
+          This design improves parallel training efficiency and makes modern language models easier to scale.
+        </p>
+        <p>
+          Lumio appears when you select text, so you can translate, explain, quote, or analyze code without leaving the page.
+        </p>
+      </article>
+      <aside class="aside">
+        <div class="aside-card">
+          <div class="aside-title">On this page</div>
+          <div class="aside-line" style="width: 82%"></div>
+          <div class="aside-line" style="width: 68%"></div>
+          <div class="aside-line" style="width: 74%"></div>
+          <div class="aside-line" style="width: 54%"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div id="lumio-toolbar" class="visible">
+    <button title="翻译">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/>
+      </svg>
+      <span>翻译</span>
+    </button>
+    <button title="解释">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+      </svg>
+      <span>解释</span>
+    </button>
+    <button title="解释代码">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="16 18 22 12 16 6"/>
+        <polyline points="8 6 2 12 8 18"/>
+      </svg>
+      <span>代码</span>
+    </button>
+    <button title="引用到对话">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span>引用</span>
+    </button>
+  </div>
+</body>
+</html>

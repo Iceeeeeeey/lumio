@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumio Settings Screenshot</title>
+  <link rel="stylesheet" href="../sidepanel/sidepanel.css">
+  <style>
+    html, body {
+      width: 420px;
+      height: 780px;
+    }
+
+    body {
+      background: #0f0f1a;
+    }
+
+    .settings-panel {
+      display: flex !important;
+      position: static;
+      inset: auto;
+      height: 100%;
+      animation: none;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(0); }
+      to { transform: translateX(0); }
+    }
+
+    .settings-save-btn {
+      margin-top: 8px;
+    }
+
+    .provider-card {
+      padding: 12px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      background: rgba(99, 102, 241, 0.12);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .provider-card strong {
+      color: var(--accent-light);
+    }
+  </style>
+</head>
+<body>
+  <div id="settings-panel" class="settings-panel">
+    <div class="settings-header">
+      <h2>设置</h2>
+      <button class="settings-close">✕</button>
+    </div>
+    <div class="settings-body">
+      <div class="provider-card">
+        推荐配置：<strong>DeepSeek</strong> + <strong>deepseek-v4-flash</strong>
+      </div>
+      <div class="setting-group">
+        <label>API 地址</label>
+        <input type="text" value="https://api.deepseek.com">
+        <div class="setting-hint">推荐使用 DeepSeek；也支持兼容 OpenAI 的接口地址</div>
+      </div>
+      <div class="setting-group">
+        <label>Token</label>
+        <input type="password" value="sk-••••••••••••••••••••••••">
+      </div>
+      <div class="setting-group">
+        <label>模型 (可选)</label>
+        <input type="text" value="deepseek-v4-flash">
+        <div class="setting-hint">复杂推理或高质量任务可改为 deepseek-v4-pro</div>
+      </div>
+      <div class="setting-group">
+        <label>回复语言</label>
+        <select>
+          <option>简体中文</option>
+        </select>
+      </div>
+      <button class="settings-save-btn">保存设置</button>
+    </div>
+  </div>
+</body>
+</html>
