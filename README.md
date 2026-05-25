@@ -11,7 +11,7 @@ Lumio is a Chrome side-panel AI reading assistant for technical docs and long-fo
 - Page-level actions: summarize page, key points, full-page translation, glossary
 - Code block enhancement with one-click code explanation
 - Context menu and keyboard shortcuts
-- Bring-your-own API endpoint and token, compatible with OpenAI-style `/v1/chat/completions` APIs
+- Bring-your-own API endpoint and token, with DeepSeek as the recommended default provider
 - Local-only settings and conversation history through `chrome.storage.local`
 
 ## Install Locally
@@ -21,9 +21,9 @@ Lumio is a Chrome side-panel AI reading assistant for technical docs and long-fo
 3. Click **Load unpacked**.
 4. Select this repository directory.
 5. Click the Lumio icon and configure:
-   - API URL, for example `https://api.openai.com/v1/chat/completions` or an OpenAI-compatible endpoint
-   - API token
-   - Optional model name
+   - API URL: `https://api.deepseek.com`
+   - API token: your DeepSeek API key
+   - Model: `deepseek-v4-flash`
 
 No build step is required.
 
@@ -34,6 +34,18 @@ No build step is required.
 - Open the side panel from the extension icon or `Cmd+Shift+Y` on macOS.
 - Use `Cmd+Shift+T` on macOS to translate selected text.
 - Use the side-panel quick actions to summarize, translate, or extract terms from the current page.
+
+## Recommended Model Settings
+
+Lumio recommends DeepSeek for the default setup:
+
+- API URL: `https://api.deepseek.com`
+- Default model: `deepseek-v4-flash`
+- Higher-quality option: `deepseek-v4-pro`
+
+`deepseek-v4-flash` is the recommended default for reading, translation, summarization, and everyday explanation because it is fast and cost-effective. Use `deepseek-v4-pro` when you want stronger reasoning or higher quality on complex technical content.
+
+The legacy model names `deepseek-chat` and `deepseek-reasoner` are not recommended for new configurations because DeepSeek has announced that they will be deprecated on 2026-07-24.
 
 ## API Compatibility
 
@@ -49,6 +61,11 @@ Lumio sends requests from the extension background service worker to the configu
   "max_tokens": 4096
 }
 ```
+
+If the API URL is a base URL, Lumio automatically appends the chat completions path:
+
+- DeepSeek base URL `https://api.deepseek.com` becomes `https://api.deepseek.com/chat/completions`
+- OpenAI-style base URLs normally become `/v1/chat/completions`
 
 The response parser supports OpenAI-style `choices[0].message.content` and a few simple text response formats.
 

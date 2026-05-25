@@ -1,5 +1,8 @@
 // Lumio - Background Service Worker
 
+const DEFAULT_API_URL = 'https://api.deepseek.com';
+const DEFAULT_MODEL = 'deepseek-v4-flash';
+
 // ============ Safe Message Sending (callback-based, reliable lastError suppression) ============
 
 // Send message to tab's content script, silently fail if not available
@@ -218,13 +221,7 @@ async function callAPI(settings, systemPrompt, messages) {
     body.model = settings.model;
   }
 
-  // 自动补全 API 路径：如果用户只填了基础域名，自动加上 /v1/chat/completions
-  let apiUrl = settings.apiUrl.replace(/\/+$/, ''); // 去掉末尾斜杠
-  if (!apiUrl.includes('/v1/')) {
-    apiUrl += '/v1/chat/completions';
-  } else if (apiUrl.endsWith('/v1')) {
-    apiUrl += '/chat/completions';
-  }
+  const apiUrl = resolveChatCompletionUrl(settings.apiUrl);
 
   const response = await fetch(apiUrl, {
     method: 'POST',
@@ -263,10 +260,37 @@ async function callAPI(settings, systemPrompt, messages) {
 async function getSettings() {
   return new Promise((resolve) => {
     chrome.storage.local.get({
-      apiUrl: '',
+      apiUrl: DEFAULT_API_URL,
       token: '',
-      model: '',
+      model: DEFAULT_MODEL,
       language: 'zh-CN',
     }, resolve);
   });
+}
+
+function resolveChatCompletionUrl(rawUrl) {
+  let apiUrl = String(rawUrl || '').trim().replace(/\/+$/, '');
+  if (!apiUrl) return apiUrl;
+
+  if (/\/(?:v1\/)?chat\/completions$/i.test(apiUrl)) {
+    return apiUrl;
+  }
+
+  if (isDeepSeekUrl(apiUrl)) {
+    return `${apiUrl}/chat/completions`;
+  }
+
+  if (/\/v1$/i.test(apiUrl)) {
+    return `${apiUrl}/chat/completions`;
+  }
+
+  return `${apiUrl}/v1/chat/completions`;
+}
+
+function isDeepSeekUrl(apiUrl) {
+  try {
+    return new URL(apiUrl).hostname === 'api.deepseek.com';
+  } catch (e) {
+    return false;
+  }
 }

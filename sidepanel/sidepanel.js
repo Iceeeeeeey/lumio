@@ -1,5 +1,8 @@
 // Lumio - Side Panel Logic
 
+const DEFAULT_API_URL = 'https://api.deepseek.com';
+const DEFAULT_MODEL = 'deepseek-v4-flash';
+
 // ============ State ============
 let messages = [];
 let currentQuote = null;
@@ -645,9 +648,9 @@ function toggleHistory() {
 
 function loadSettings() {
   chrome.storage.local.get({
-    apiUrl: '',
+    apiUrl: DEFAULT_API_URL,
     token: '',
-    model: '',
+    model: DEFAULT_MODEL,
     language: 'zh-CN',
   }, (settings) => {
     document.getElementById('setting-apiurl').value = settings.apiUrl;

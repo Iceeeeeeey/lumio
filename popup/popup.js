@@ -1,5 +1,8 @@
 // Lumio - Popup Script
 
+const DEFAULT_API_URL = 'https://api.deepseek.com';
+const DEFAULT_MODEL = 'deepseek-v4-flash';
+
 document.addEventListener('DOMContentLoaded', () => {
   checkStatus();
   loadSettings();
@@ -63,7 +66,7 @@ function openSidePanelWithAction(action) {
 }
 
 function loadSettings() {
-  chrome.storage.local.get({ apiUrl: '', token: '', model: '' }, (settings) => {
+  chrome.storage.local.get({ apiUrl: DEFAULT_API_URL, token: '', model: DEFAULT_MODEL }, (settings) => {
     document.getElementById('apiurl-input').value = settings.apiUrl;
     document.getElementById('token-input').value = settings.token;
     document.getElementById('model-input').value = settings.model;
@@ -71,7 +74,7 @@ function loadSettings() {
 }
 
 function checkStatus() {
-  chrome.storage.local.get({ apiUrl: '', token: '' }, (settings) => {
+  chrome.storage.local.get({ apiUrl: DEFAULT_API_URL, token: '' }, (settings) => {
     const dot = document.getElementById('status-dot');
     const text = document.getElementById('status-text');
 
